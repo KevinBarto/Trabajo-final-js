@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./estilos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Tienda de las Olas</title>
+  </head>
+  <body>
+    <!-- principio de navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Home</a>
+    
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">KiteSurf</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Surf</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+      </nav>
+    <!-- fin de navbar -->
+
+    <!-- principio de carrusel -->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+    
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./img//kite1.jpg" alt="Los Angeles">
+        </div>
+        <div class="carousel-item">
+          <img src="./img/kite2.jpg" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+          <img src="./img/kite3.jpg" alt="New York">
+        </div>
+      </div>
+    
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    
+    </div>
+    <!-- fin de carrusel -->
+    <!-- titulo -->
+    <div class="jumbotron text-center ">
+      <div class="titulo">
+        <h1>Bienvenidos a la Tienda de KiteSurf</h1>
+        <p>Aqui puedes conseguir los mejores productos</p>
+        </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <!-- buscador -->
+          <h2>¿Que estas Buscando?</h2>
+  <div class="buscador">
+    <form action="">
+      <label for="producto">Elige un producto de ese deporte</label>
+      <select name="producto" id="producto">
+        <option value="arnes">Arnes</option>
+        <option value="tabla">Boards</option>
+        <option value="kite">Kites</option>
+      </select>
+    </form>
+  </div>
+        </div>
+        <!-- img con src a los productos -->
+        <div class="col-sm-8 ">
+          <div class="contenedorimg ">
+        <a href="./productos/arnes.html"><img src="./img/arnes.jpg" alt="" class="rounded"></a>
+        <a href="./productos/tabla.html"><img src="./img/tabla.jpg" alt="" class="rounded"></a>
+        <a href="./productos/barriletes.html"><img src="./img/barrilete.jpg" alt="" class="rounded"></a>
+      </div>
+        </div>
+        
+      </div>
+    </div>
+
+  <!-- footer -->
+    <div class="footer">
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>Contaco</h3>
+            <i class="fa-brands fa-facebook"></i><br>
+            <i class="fa-brands fa-instagram"></i><br>
+            <i class="fa-brands fa-whatsapp"></i><br>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div class="col-sm-4">
+            <p><strong>Derechos reservados </strong></p>
+          </div>
+          <div class="col-sm-4 listaFooter ">
+            <h3>Productos:</h3>
+            <ul>
+              <li><a href="./productos/arnes.html">Arnes</a></li>
+              <li><a href="./productos/tabla.html"">Tablas de KiteSurf</a></li>
+              <li><a href="./productos/barriletes.html">Kites</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+
+
+
+
+
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  </body>
+</html>
