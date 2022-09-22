@@ -26,94 +26,94 @@ const kite3 = new Producto("duotone", 2600);
 
 // variantes y arrays
 const carrito = [];
+const arneses = [arnes1 ,arnes2 ,arnes3];
+const tablas = [tabla1 , tabla2 , tabla3];
+const kites = [kite1 , kite2 , kite3];
 
-// Entrada
-let seg =prompt("Bienvenido a la tienda! \n Desea acceder?");
+// Selector de Arnese
+const btnArnes = document.querySelector("#btnArnes");
+btnArnes.onclick = function (){ 
+    generarARNES();
+}
 
-while(seg != "no"){
-let busqueda =Number(prompt("Que estas buscando? Elija una opcion \n 1:Arnes \n 2:Tablas \n 3:Kites" ));
-
-if (busqueda ==  1){
-    Arneses()
-}else if(busqueda ==  2){
-    Tablas()
-}else if(busqueda ==  3){
-    Kites()
-}else alert("tu opcion no es correcta");
+function generarARNES(){
+    document.querySelector("#agregarProduc");
+    for (arnes of arneses){
+        const arnesDOM = document.createElement(`article`);
+        arnesDOM.innerHTML=`<h4>Marca: ${arnes.nombre}</h4>
+        <h5>Precio: ${arnes.precio}</h5>`
+ 
 
 
-// pusheo de objetos en array
-function Arneses() {
-    let opc = Number(prompt("Arneses: \n 1.Duotone \n 2.Best \n 3.Dakine"))
-    switch (opc) {
-        case 1:
-            carrito.push(arnes1)
-        break;
-        case 2:
-            carrito.push(arnes2)
-        break;
-        case 3:
-            carrito.push(arnes3)
-        break;
-    
-        default: "tu opcion es incorrecta , vuelve a intentarlo"
-            break;
+const arnesBtn = document.createElement(`button`);
+arnesBtn.innerText=`agregar`;
+
+arnesBtn.onclick = function () {
+    agregar(arnes);
+}
+
+document.querySelector("#agregarProduc").append(arnesDOM , arnesBtn)
+
     }
 }
 
-function Tablas() {
-    let opc = Number(prompt("Tablas: \n 1.Vision\n 2.Prime \n 3.Cabrinha"))
-    switch (opc) {
-        case 1:
-            carrito.push(tabla1)
-        break;
-        case 2:
-            carrito.push(tabla2)
-        break;
-        case 3:
-            carrito.push(tabla3)
-        break;
+// Selector de Tablas
+
+const btnTablas = document.querySelector("#btnTabla");
+btnTablas.onclick = function (){
+    generarTABLA()
+}
+
+function generarTABLA() {
+    document.querySelector("#agregarProduc");
+    for (tabla of tablas){
+        const tablaDOM = document.createElement(`article`);
+        tablaDOM.innerHTML=`<h4>Marca: ${tabla.nombre}</h4>
+        <h5>Precio: ${tabla.precio}</h5>`;
+
+    const tablaBtn = document.createElement(`button`)
+    tablaBtn.innerText=`agregar`;
+
+    tablaBtn.onclick = function (){
+        agregar(tabla);
+    };
+
+    document.querySelector("#agregarProduc").append(tablaDOM , tablaBtn);
+
+
+    };
+};
+
+// Selector Kites
+const btnKite = document.querySelector("#btnKite");
+btnKite.onclick = function () {
+    generarKite()
+};
+
+function generarKite() {
+    document.querySelector("#agregarProduc");
+    for (kite of kites){
+        const kiteDOM = document.createElement(`article`);
+        kiteDOM.innerHTML=`<h4>Marca: ${kite.nombre}</h4>
+        <h5>Precio: ${kite.precio}</h5>`;
     
-        default: "tu opcion es incorrecta , vuelve a intentarlo"
-            break;
+    const kiteBtn = document.createElement(`button`)
+    kiteBtn.innerText=`agregar`;
+
+    kiteBtn.onclick = function () {
+        agregar();
     }
-    
-}
 
-function Kites() {
-    
-    let opc = Number(prompt("Kites: \n 1.Slingshot \n 2.Cabrinha \n 3.Duotone"))
-    switch (opc) {
-        case 1:
-            carrito.push(kite1)
-        break;
-        case 2:
-            carrito.push(kite2)
-        break;
-        case 3:
-            carrito.push(kite3)
-        break;
-    
-        default:alert("Tu opcion es incorrecta")
-            break;}
-    
-}
-seg =prompt("Desea seguir comprando?")
+    function agregar(){
+        carrito.push(kite)
+    }
+
+
+
+    document.querySelector("#agregarProduc").append(kiteDOM , kiteBtn)
+    }
 }
 
 
 
-// muestra de carrito
-alert(carrito.forEach((Producto)=>{
-        alert(`Tu producto es ${Producto.nombre} y el precio es ${Producto.precio}`)
-})
-);
-
-let resultado = carrito.reduce((acc,Producto)=>{
-        return acc + Producto.precio;
-    },0);
-
-alert("Precio TOTAL:$" + resultado);
-
-
-alert("Gracias por tu compra! \n Nos vemos en DOM")
+console.log(carrito)
