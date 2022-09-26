@@ -38,7 +38,7 @@ btnArnes.onclick = function (){
 
 function generarARNES(){
     document.querySelector("#agregarProduc");
-    for (arnes of arneses){
+    for (let arnes of arneses){
         const arnesDOM = document.createElement(`article`);
         arnesDOM.innerHTML=`<h4>Marca: ${arnes.nombre}</h4>
         <h5>Precio: ${arnes.precio}</h5>`
@@ -49,7 +49,7 @@ const arnesBtn = document.createElement(`button`);
 arnesBtn.innerText=`agregar`;
 
 arnesBtn.onclick = function () {
-    agregar(arnes);
+    carrito.push(arnes)
 }
 
 document.querySelector("#agregarProduc").append(arnesDOM , arnesBtn)
@@ -66,7 +66,7 @@ btnTablas.onclick = function (){
 
 function generarTABLA() {
     document.querySelector("#agregarProduc");
-    for (tabla of tablas){
+    for (let tabla of tablas){
         const tablaDOM = document.createElement(`article`);
         tablaDOM.innerHTML=`<h4>Marca: ${tabla.nombre}</h4>
         <h5>Precio: ${tabla.precio}</h5>`;
@@ -75,7 +75,7 @@ function generarTABLA() {
     tablaBtn.innerText=`agregar`;
 
     tablaBtn.onclick = function (){
-        agregar(tabla);
+        carrito.push(tabla);
     };
 
     document.querySelector("#agregarProduc").append(tablaDOM , tablaBtn);
@@ -92,7 +92,7 @@ btnKite.onclick = function () {
 
 function generarKite() {
     document.querySelector("#agregarProduc");
-    for (kite of kites){
+    for (let kite of kites){
         const kiteDOM = document.createElement(`article`);
         kiteDOM.innerHTML=`<h4>Marca: ${kite.nombre}</h4>
         <h5>Precio: ${kite.precio}</h5>`;
@@ -101,19 +101,26 @@ function generarKite() {
     kiteBtn.innerText=`agregar`;
 
     kiteBtn.onclick = function () {
-        agregar();
-    }
-
-    function agregar(){
         carrito.push(kite)
     }
 
+    
 
 
     document.querySelector("#agregarProduc").append(kiteDOM , kiteBtn)
+
+    
     }
+
 }
 
+// JSON
+const json = JSON.stringify(carrito)
 
+localStorage.setItem("carrito" , json)
 
-console.log(carrito)
+const carritoJSON = JSON.parse(localStorage.getItem("carrito"))
+
+console.log(carritoJSON)
+
+// no anda y estoy al borde del colapso ajaj
