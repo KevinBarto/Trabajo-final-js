@@ -37,7 +37,7 @@ btnArnes.onclick = function (){
 }
 
 function generarARNES(){
-    document.querySelector("#agregarProduc");
+    document.querySelector("#agregarProduc").innerHTML = ''
     for (let arnes of arneses){
         const arnesDOM = document.createElement(`article`);
         arnesDOM.innerHTML=`<h4>Marca: ${arnes.nombre}</h4>
@@ -49,7 +49,8 @@ const arnesBtn = document.createElement(`button`);
 arnesBtn.innerText=`agregar`;
 
 arnesBtn.onclick = function () {
-    carrito.push(arnes)
+    carrito.push(arnes);
+    actualizarCarrito();
 }
 
 document.querySelector("#agregarProduc").append(arnesDOM , arnesBtn)
@@ -65,7 +66,7 @@ btnTablas.onclick = function (){
 }
 
 function generarTABLA() {
-    document.querySelector("#agregarProduc");
+    document.querySelector("#agregarProduc").innerHTML = ''
     for (let tabla of tablas){
         const tablaDOM = document.createElement(`article`);
         tablaDOM.innerHTML=`<h4>Marca: ${tabla.nombre}</h4>
@@ -76,6 +77,7 @@ function generarTABLA() {
 
     tablaBtn.onclick = function (){
         carrito.push(tabla);
+        actualizarCarrito();
     };
 
     document.querySelector("#agregarProduc").append(tablaDOM , tablaBtn);
@@ -91,7 +93,7 @@ btnKite.onclick = function () {
 };
 
 function generarKite() {
-    document.querySelector("#agregarProduc");
+    document.querySelector("#agregarProduc").innerHTML = ''
     for (let kite of kites){
         const kiteDOM = document.createElement(`article`);
         kiteDOM.innerHTML=`<h4>Marca: ${kite.nombre}</h4>
@@ -102,6 +104,7 @@ function generarKite() {
 
     kiteBtn.onclick = function () {
         carrito.push(kite)
+        actualizarCarrito() 
     }
 
     
@@ -115,12 +118,75 @@ function generarKite() {
 }
 
 // JSON
-const json = JSON.stringify(carrito)
+function actualizarCarrito() {
+    const json = JSON.stringify(carrito)
+    localStorage.setItem("carrito", json)
+    const carritoJSON = JSON.parse(localStorage.getItem("carrito"))
+    carritoJSON.push(carrito)
+    // console.log(carritoJSON)
 
-localStorage.setItem("carrito" , json)
+}
+    
+console.log(carrito)
+    // Visualizar Carrito
+const mostrarCarro = document.querySelector("#mostrarCarrito");
+mostrarCarro.onclick = function () {
+    carrito.forEach((Producto)=>{
+        let recibo = document.createElement('article');
+        recibo.innerHTML=`
+        <h1>Sus prductos son:</h1>
+        <span>${Producto.nombre}
+        ${Producto.precio}</span>
+        `
 
-const carritoJSON = JSON.parse(localStorage.getItem("carrito"))
+        document.querySelector("#carrito").append(recibo)
 
-console.log(carritoJSON)
+    }
+    
+    )
+}
 
-// no anda y estoy al borde del colapso ajaj
+    
+    
+
+
+
+
+
+
+
+
+
+// Buenas Kevin! Cómo va?
+
+// Lo que tenes del JSON en local storage esta bien, si que anda! Solo que tenes que llamarlo cuando actualizas el carrito, metelo en una función
+
+// // JSON
+// function actualizarCarrito() {
+//     const json = JSON.stringify(carrito)
+//     localStorage.setItem("carrito", json)
+//     const carritoJSON = JSON.parse(localStorage.getItem("carrito"))
+//     console.log(carritoJSON)
+// }
+
+
+// Y usala cuando mandas productos al carrito
+
+//         kiteBtn.onclick = function () {
+//             carrito.push(kite)
+//             actualizarCarrito()  // Acá, despues de agregar
+//         }
+
+
+// Te recomiendo limpiar el HTML cuando cambias el filtro, si no se puede generar mil veces lo mismo y queda feo.. jaja en la primera linea de las funciones generarArnes, Kite y Tabla, podes limpiar el html igualando a ""
+
+// function generarTABLA() {
+//     document.querySelector("#agregarProduc").innerHTML = ''
+//     ...
+
+
+// Faltaría poder ver el carrito de alguna forma..
+
+// Te animas a sumar estos cambios? Cualquier cosa me consultas.
+
+// Abrazo!
