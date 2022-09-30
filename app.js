@@ -107,9 +107,6 @@ function generarKite() {
         actualizarCarrito() 
     }
 
-    
-
-
     document.querySelector("#agregarProduc").append(kiteDOM , kiteBtn)
 
     
@@ -127,7 +124,7 @@ function actualizarCarrito() {
 
 }
     
-console.log(carrito)
+
     // Visualizar Carrito
 const mostrarCarro = document.querySelector("#mostrarCarrito");
 mostrarCarro.onclick = function () {
@@ -138,9 +135,17 @@ mostrarCarro.onclick = function () {
         <span>${Producto.nombre}
         ${Producto.precio}</span>
         `
-
-        document.querySelector("#carrito").append(recibo)
-
+        const eliminar =document.createElement("button")
+        eliminar.innerText=`Eliminar Producto`
+        
+        eliminar.addEventListener(`click`, () => {
+            recibo.splice()
+            
+        }
+        )
+        
+        document.querySelector("#carrito").append(recibo , eliminar)
+        
     }
     
     )
