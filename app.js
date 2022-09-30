@@ -124,11 +124,13 @@ function actualizarCarrito() {
 
 }
     
-
-    // Visualizar Carrito
 const mostrarCarro = document.querySelector("#mostrarCarrito");
-mostrarCarro.onclick = function () {
-    carrito.forEach((Producto)=>{
+mostrarCarro.onclick = mostrarCarrito
+    
+// Visualizar Carrito
+function mostrarCarrito() {
+    document.querySelector("#carrito").innerHTML=``
+    carrito.forEach((Producto , index)=>{
         let recibo = document.createElement('article');
         recibo.innerHTML=`
         <h1>Sus prductos son:</h1>
@@ -139,8 +141,8 @@ mostrarCarro.onclick = function () {
         eliminar.innerText=`Eliminar Producto`
         
         eliminar.addEventListener(`click`, () => {
-            recibo.splice()
-            
+            carrito.splice(index,1)
+            mostrarCarrito()
         }
         )
         
