@@ -143,19 +143,82 @@ function mostrarCarrito() {
         eliminar.addEventListener(`click`, () => {
             carrito.splice(index,1)
             mostrarCarrito()
-        }
-        )
-        
-        document.querySelector("#carrito").append(recibo , eliminar)
-        
-    }
+        })
     
-    )
+        document.querySelector("#carrito")
+const finalizar = document.createElement("button")
+finalizar.innerText=`Finalizar Compra`
+
+finalizar.addEventListener(`click` , ()=>{
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Compra Exitosa',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    
+
+})
+
+        document.querySelector("#carrito").append(recibo , eliminar , finalizar)
+        
+    
+    })
+
 }
 
-    
-    
+// document.querySelector("#carrito").innerHTML=``
+// const finalizar = document.createElement("button")
+// finalizar.innerText=`Finalizar Compra`
 
+// finalizar.addEventListener(`click` , ()=>{
+//     Swal.fire({
+//         position: 'top-end',
+//         icon: 'success',
+//         title: 'Compra Exitosa',
+//         showConfirmButton: false,
+//         timer: 1500
+//       })
+//     mostrarCarrito()
+
+// })
+
+
+// const swalWithBootstrapButtons = Swal.mixin({
+//     customClass: {
+//       confirmButton: 'btn btn-success',
+//       cancelButton: 'btn btn-danger'
+//     },
+//     buttonsStyling: false
+//   })
+  
+//   swalWithBootstrapButtons.fire({
+//     title: 'Are you sure?',
+//     text: "You won't be able to revert this!",
+//     icon: 'warning',
+//     showCancelButton: true,
+//     confirmButtonText: 'Yes, delete it!',
+//     cancelButtonText: 'No, cancel!',
+//     reverseButtons: true
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       swalWithBootstrapButtons.fire(
+//         'Deleted!',
+//         'Your file has been deleted.',
+//         'success'
+//       )
+//     } else if (
+//       /* Read more about handling dismissals below */
+//       result.dismiss === Swal.DismissReason.cancel
+//     ) {
+//       swalWithBootstrapButtons.fire(
+//         'Cancelled',
+//         'Your imaginary file is safe :)',
+//         'error'
+//       )
+//     }
+//   })
 
 
 
