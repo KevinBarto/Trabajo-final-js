@@ -158,13 +158,40 @@ const finalizar = document.createElement("button")
 finalizar.innerText=`Finalizar Compra`
 
 finalizar.addEventListener(`click` , ()=>{
+    
     Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Compra Exitosa',
-        showConfirmButton: false,
-        timer: 1500
         
+        
+        title: 'ingrese su Nombre para finalizar la compra',
+        input: 'text',
+        inputAttributes: {
+          autocapitalize: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Look up',
+        showLoaderOnConfirm: true,
+        preConfirm: (login) => {
+          return fetch(`//api.github.com/users/${login}`)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(response.statusText)
+              }
+              return response.json()
+            })
+            .catch(error => {
+              Swal.showValidationMessage(
+                `Request failed: ${error}`
+              )
+            })
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: `Gracias ${result.value.login} ESPERO VERTE EN REACT<3'`,
+            imageUrl: result.value.avatar_url
+          })
+        }
       })
       document.querySelector("#carrito").innerHTML=``
 
