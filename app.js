@@ -1,34 +1,40 @@
 
-// Objetos
-class Producto{
-    constructor (nombre, precio){
-    this.nombre = nombre;
-    this.precio = precio;
+async function fetchArnes(){
+    const resp = await fetch(`./arnes.json`)
+    return await resp.json()
 }
+
+async function fetchTablas(){
+    const resp = await fetch(`./tabla.json`)
+    return await resp.json()
 }
-// OBJ ARNESES
-const arnes1 = new Producto("duotone", 150000);
-const arnes2 = new Producto("best" , 170000);
-const arnes3 = new Producto("dakine", 135000);
 
-
-// OBJ TABLAS
-const tabla1 = new Producto("vision", 350000);
-const tabla2 = new Producto("prime" , 350000);
-const tabla3 = new Producto("cabrinha" , 450000);
-
-
-// OBJ KITES
-const kite1 = new Producto("slingshot" , 2300);
-const kite2 = new Producto("cabrinha", 2500);
-const kite3 = new Producto("duotone", 2600);
+async function fetchKite(){
+    const resp = await fetch(`./kite.json`)
+    return await resp.json()
+}
 
 
 // variantes y arrays
-const carrito = [];
-const arneses = [arnes1 ,arnes2 ,arnes3];
-const tablas = [tabla1 , tabla2 , tabla3];
-const kites = [kite1 , kite2 , kite3];
+let carrito = [];
+let arneses = [];
+let tablas = [];
+let kites = [];
+
+fetchArnes().then(productos=>{
+    arneses = productos
+    generarARNES()
+})
+
+fetchTablas().then(productos=>{
+    tablas = productos
+    generarTABLA()
+})
+
+fetchKite().then(productos=>{
+    kites = productos
+    generarKite()
+})
 
 // Selector de Arnese
 const btnArnes = document.querySelector("#btnArnes");
@@ -146,6 +152,8 @@ function mostrarCarrito() {
         })
     
         document.querySelector("#carrito")
+
+
 const finalizar = document.createElement("button")
 finalizar.innerText=`Finalizar Compra`
 
@@ -156,8 +164,9 @@ finalizar.addEventListener(`click` , ()=>{
         title: 'Compra Exitosa',
         showConfirmButton: false,
         timer: 1500
+        
       })
-    
+      document.querySelector("#carrito").innerHTML=``
 
 })
 
@@ -165,7 +174,7 @@ finalizar.addEventListener(`click` , ()=>{
         
     
     })
-
+    
 }
 
 // document.querySelector("#carrito").innerHTML=``

@@ -1,0 +1,5 @@
+[
+    {"modelo": "Tabla" ,"nombre":"Vision" , "precio":35000 },
+    {"modelo": "Tabla" ,"nombre":"Prime" , "precio":45000 },
+    {"modelo": "Tabla" ,"nombre":"Cabrinha" , "precio":45000 }
+]
